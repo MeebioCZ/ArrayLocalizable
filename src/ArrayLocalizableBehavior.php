@@ -9,7 +9,7 @@ use Propel\Generator\Model\Column;
 use Propel\Generator\Model\ForeignKey;
 use Propel\Generator\Model\PropelTypes;
 
-class ArrayLocalizable extends I18nBehavior
+class ArrayLocalizableBehavior extends I18nBehavior
 {
     public function getObjectBuilderModifier()
     {
