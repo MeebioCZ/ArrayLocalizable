@@ -9,7 +9,7 @@ class ArrayLocalizableBehavior extends Behavior
 {
     public function objectMethods()
     {
-        $script = _;
+        $script = '';
         $script .= $this->addFromLocalizedArray();
         $script .= $this->addToLocalizedArray();
 
