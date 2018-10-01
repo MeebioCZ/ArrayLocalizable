@@ -1,0 +1,22 @@
+{
+    "name": "ypsylon/ArrayLocalizable",
+    "description": "Behavior that add fromLocalizedArray and toLocalizedArray methods to propel",
+    "license": "MIT",
+    "keywords": ["propel", "behavior", "i18n"],
+    "require": {
+        "php": ">= 5.3.7",
+        "propel/propel": "~2.0@dev"
+    },
+    "type" : "propel-behavior",
+    "extra": {
+        "name": "array-localizable",
+        "class": "\\Ypsylon\\Propel\\Behavior\\ArrayLocalizable\\ArrayLocalizableBehavior"
+    },
+    "autoload":{
+        "psr-4": {
+            "Ypsylon\\Propel\\Behavior\\ArrayLocalizable\\":[
+                "src"
+            ]
+        }
+    }
+}
