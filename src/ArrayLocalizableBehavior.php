@@ -3,21 +3,43 @@
 namespace Ypsylon\Propel\Behavior\ArrayLocalizable;
 
 use Propel\Generator\Behavior\I18n\I18nBehavior;
-use Propel\Generator\Behavior\Versionable\VersionableBehavior;
-use Propel\Generator\Exception\EngineException;
-use Propel\Generator\Model\Column;
-use Propel\Generator\Model\ForeignKey;
-use Propel\Generator\Model\PropelTypes;
+use Propel\Generator\Model\Behavior;
 
-class ArrayLocalizableBehavior extends I18nBehavior
+class ArrayLocalizableBehavior extends Behavior
 {
-    public function getObjectBuilderModifier()
+    public function objectMethods()
     {
-        if (null === $this->objectBuilderModifier) {
-            $this->objectBuilderModifier = new ArrayLocalizableBehaviorObjectBuilderModifier($this);
+        $script = _;
+        $script .= $this->addFromLocalizedArray();
+        $script .= $this->addToLocalizedArray();
+
+        return $script;
+    }
+
+
+    protected function addFromLocalizedArray()
+    {
+        return $this->renderTemplate('objectFromLocalizedArray', [
+            'setterMethods' => $this->getAllTableColumnsSetters()
+        ]);
+    }
+
+    protected function addToLocalizedArray()
+    {
+        return $this->renderTemplate('objectToLocalizedArray', [
+            'getterMethods' => $this->getAllTableColumnsGetters(),
+        ]);
+    }
+
+    protected function getI18nColumns()
+    {
+        foreach ($this->table->getBehaviors() as $behavior) {
+            if ($behavior instanceof I18nBehavior) {
+                return $behavior->getI18nColumns();
+            }
         }
 
-        return $this->objectBuilderModifier;
+        return [];
     }
 
     protected function getAllTableColumnsPhpNames()
