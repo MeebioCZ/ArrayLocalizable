@@ -3,7 +3,7 @@
 *
 * @return array
 */
-public function toLocalizedArray()
+public function toLocalizedArray() : array
 {
     $result = [];
 <?php

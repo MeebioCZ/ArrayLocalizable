@@ -2,7 +2,7 @@
 * Fill object from localized array
 *
 */
-public function fromLocalizedArray($array)
+public function fromLocalizedArray(array $array) : void
 {
     <?php
         foreach ($setterMethods as $key => $method) {
