@@ -1,5 +1,5 @@
 {
-    "name": "ypsylon/ArrayLocalizable",
+    "name": "ypsylon/array-localizable",
     "description": "Behavior that add fromLocalizedArray and toLocalizedArray methods to propel",
     "license": "MIT",
     "keywords": ["propel", "behavior", "i18n"],
