@@ -7,7 +7,7 @@ public function fromLocalizedArray(array $array) : void
     <?php
         foreach ($setterMethods as $key => $method) {
             $line = "   
-            if (isset(\$array['$key'])) {
+            if (array_key_exists('$key', \$array)) {
                 \$this->$method(\$array['$key']);
             }";
             echo $line;
